@@ -4,9 +4,11 @@ import uuidv4 from "uuid/v4";
 class Shoe extends Component {
   render() {
     const items = this.props.sizes.map((item, index) => (
-      <li key={uuidv4()}>{item}</li>
+      <fragment>
+        <li key={uuidv4()}>{item[0]}</li>
+        <li key={uuidv4()}>{item[1]}</li>
+      </fragment>
     ));
-    console.log(items.props);
     return (
       <div className="module">
         <h1>{this.props.name}</h1>
