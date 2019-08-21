@@ -1,7 +1,24 @@
-.module {
-  border: 1px solid #ccc;
-  width: 300px;
-  display: inline-block;
+.shoeModule {
   padding: 1em;
-  margin: 1em;
+}
+
+.list-group-item {
+  border-radius: 0px !important;
+  font-size: 0.4em;
+  padding: 0.6em !important;
+}
+
+ul.list-group {
+  float: left;
+  margin-right: 0.5em;
+}
+
+.shoeModule h1 {
+  font-size: 0.9em;
+}
+
+.shoeModule p {
+  font-size: 0.6em;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1em;
 }

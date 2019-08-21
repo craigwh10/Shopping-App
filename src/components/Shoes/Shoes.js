@@ -7,7 +7,9 @@ class Shoes extends Component {
       <div className="container">
         <div className="row">
           {this.props.shoes.map((shoe, index) => {
-            return <Shoe name={shoe.name} sizes={shoe.sizes} />;
+            return (
+              <Shoe name={shoe.name} sizes={shoe.sizes} type={shoe.type} />
+            );
           })}
         </div>
       </div>

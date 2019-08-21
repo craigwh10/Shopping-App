@@ -6,7 +6,7 @@ class Shoe extends Component {
   classHandler = e => {
     const classes = ["list-group-item"];
 
-    if (e < 2) {
+    if (e <= 3) {
       classes.push("list-group-item-danger");
       return [e, classes];
     } else {
@@ -27,8 +27,9 @@ class Shoe extends Component {
       </ul>
     ));
     return (
-      <div className="col-lg-3">
+      <div className="col-lg-3 shoeModule">
         <h1>{this.props.name}</h1>
+        <p>{this.props.type}</p>
         {items}
       </div>
     );

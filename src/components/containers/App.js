@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Shoes from "../Shoes/Shoes";
+import Header from "../DivElements/Header";
 
 class App extends Component {
   state = {
@@ -8,19 +9,19 @@ class App extends Component {
       {
         id: "a1",
         name: "nike react",
-        sizes: [[1, 1], [2, 1], [3, 2]],
+        sizes: [[1, 2], [2, 1], [3, 2]],
         type: "run"
       },
       {
         id: "a2",
         name: "nike vaporfly",
-        sizes: [[1, 1], [2, 1], [3, 2]],
+        sizes: [[1, 1], [2, 3], [3, 2]],
         type: "sport"
       },
       {
         id: "a3",
         name: "adidas ultraboost",
-        sizes: [[1, 1], [2, 1], [3, 2]],
+        sizes: [[1, 1], [2, 2], [3, 2]],
         type: "sport"
       },
       {
@@ -33,7 +34,14 @@ class App extends Component {
     filtered: false
   };
   render() {
-    return <Shoes shoes={this.state.shoes} />;
+    return (
+      <div class="card text-center">
+        <Header />
+        <div class="card-body">
+          <Shoes shoes={this.state.shoes} />
+        </div>
+      </div>
+    );
   }
 }
 
