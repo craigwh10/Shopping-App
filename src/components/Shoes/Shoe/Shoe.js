@@ -11,7 +11,7 @@ class Shoe extends Component {
       </fragment>
     ));
     return (
-      <div className="module">
+      <div className="col-lg-3">
         <h1>{this.props.name}</h1>
         <ul>{items}</ul>
       </div>
