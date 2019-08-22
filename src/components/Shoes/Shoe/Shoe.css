@@ -10,8 +10,7 @@
 
 ul.list-group {
   float: left;
-  margin-right: 0.5em;
-  margin-bottom: 1em;
+  margin: 0em 0.475em 0.5em 0.475em;
 }
 
 .shoeModule h1 {

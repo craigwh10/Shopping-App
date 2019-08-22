@@ -10,26 +10,32 @@ class App extends Component {
       shoes: [
         {
           id: "a1",
-          name: "nike react",
+          name: "Nike react",
           sizes: [[1, 2], [2, 1], [3, 2], [4, 1], [5, 6]],
           purpose: "run"
         },
         {
           id: "a2",
-          name: "nike vaporfly",
+          name: "Nike vaporfly",
           sizes: [[1, 1], [2, 3], [3, 2], [4, 2], [5, 2], [6, 20]],
           purpose: "sport"
         },
         {
           id: "a3",
-          name: "adidas ultraboost",
+          name: "Adidas ultraboost",
           sizes: [[1, 1], [2, 2], [3, 2]],
           purpose: "sport"
         },
         {
           id: "a4",
-          name: "adidas run",
+          name: "Adidas run",
           sizes: [[1, 18], [2, 42], [3, 8]],
+          purpose: "run"
+        },
+        {
+          id: "a5",
+          name: "Nike free RN",
+          sizes: [[1, 1], [2, 42], [3, 8]],
           purpose: "run"
         }
       ],
@@ -63,20 +69,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="card text-center">
-        <Header
-          click={this.clickFilter}
-          resetState={this.resetState}
-          unique={this.uniqueHeader}
-        />
-        <div className="card-body">
-          <Shoes
-            shoes={
-              this.state.filtered ? this.state.filteredShoes : this.state.shoes
-            }
+      <fragment>
+        <h1 className="top-title">{this.props.appHeader}</h1>
+        <div className="card text-center">
+          <Header
+            click={this.clickFilter}
+            resetState={this.resetState}
+            unique={this.uniqueHeader}
           />
+          <div className="card-body">
+            <Shoes
+              shoes={
+                this.state.filtered
+                  ? this.state.filteredShoes
+                  : this.state.shoes
+              }
+            />
+          </div>
         </div>
-      </div>
+      </fragment>
     );
   }
 }
