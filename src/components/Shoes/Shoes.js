@@ -12,7 +12,7 @@ class Shoes extends Component {
                 key={shoe.id}
                 name={shoe.name}
                 sizes={shoe.sizes}
-                type={shoe.type}
+                purpose={shoe.purpose}
               />
             );
           })}

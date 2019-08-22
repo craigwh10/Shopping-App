@@ -11,7 +11,7 @@ class Header extends Component {
       <div className="card-header">
         <ul className="nav nav-tabs card-header-tabs">
           <li className="nav-item">
-            <a className="nav-link active" onClick={this.props.resetState}>
+            <a className="nav-link" onClick={this.props.resetState}>
               Show All
             </a>
           </li>
@@ -23,6 +23,16 @@ class Header extends Component {
               }}
             >
               Run
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link"
+              onClick={() => {
+                this.handleClick("sport");
+              }}
+            >
+              Sport
             </a>
           </li>
         </ul>

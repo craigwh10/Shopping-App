@@ -11,6 +11,7 @@
 ul.list-group {
   float: left;
   margin-right: 0.5em;
+  margin-bottom: 1em;
 }
 
 .shoeModule h1 {
@@ -21,4 +22,8 @@ ul.list-group {
   font-size: 0.6em;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 1em;
+}
+
+.btn-block {
+  margin-top: 8em;
 }

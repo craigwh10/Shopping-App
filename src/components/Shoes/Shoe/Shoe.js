@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uuidv4 from "uuid/v4";
+import Button from "../ShoePage/Button";
 import "./Shoe.css";
 
 class Shoe extends Component {
@@ -29,8 +30,9 @@ class Shoe extends Component {
     return (
       <div className="col-lg-3 shoeModule">
         <h1>{this.props.name}</h1>
-        <p>{this.props.type}</p>
+        <p>{this.props.purpose}</p>
         {items}
+        <Button shoe={this.props}>See more</Button>
       </div>
     );
   }

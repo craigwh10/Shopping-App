@@ -11,13 +11,13 @@ class App extends Component {
         {
           id: "a1",
           name: "nike react",
-          sizes: [[1, 2], [2, 1], [3, 2]],
+          sizes: [[1, 2], [2, 1], [3, 2], [4, 1], [5, 6]],
           purpose: "run"
         },
         {
           id: "a2",
           name: "nike vaporfly",
-          sizes: [[1, 1], [2, 3], [3, 2]],
+          sizes: [[1, 1], [2, 3], [3, 2], [4, 2], [5, 2], [6, 20]],
           purpose: "sport"
         },
         {
@@ -29,7 +29,7 @@ class App extends Component {
         {
           id: "a4",
           name: "adidas run",
-          sizes: [[1, 1], [2, 4], [3, 8]],
+          sizes: [[1, 18], [2, 42], [3, 8]],
           purpose: "run"
         }
       ],
@@ -38,6 +38,7 @@ class App extends Component {
     };
     this.clickFilter = this.clickFilter.bind(this);
     this.baseState = this.state;
+    this.resetState = this.resetState.bind(this);
   }
 
   resetState = () => {
@@ -45,9 +46,11 @@ class App extends Component {
   };
 
   clickFilter = value => {
-    this.setState({
-      shoes: this.state.shoes.filter(item => item.purpose === value)
-    });
+    this.setState((state, props) => ({
+      shoes: state.shoes.filter(item => item.purpose === value),
+      filtered: true,
+      filteredValue: value
+    }));
     console.log("called", value);
   };
 
