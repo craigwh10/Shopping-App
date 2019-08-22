@@ -33,6 +33,7 @@ class App extends Component {
           purpose: "run"
         }
       ],
+      filteredShoes: [],
       filtered: false,
       filteredValue: null
     };
@@ -46,12 +47,11 @@ class App extends Component {
   };
 
   clickFilter = value => {
-    this.setState((state, props) => ({
-      shoes: state.shoes.filter(item => item.purpose === value),
+    this.setState({
+      filteredShoes: this.state.shoes.filter(item => item.purpose === value),
       filtered: true,
       filteredValue: value
-    }));
-    console.log("called", value);
+    });
   };
 
   render() {
@@ -59,7 +59,11 @@ class App extends Component {
       <div className="card text-center">
         <Header click={this.clickFilter} resetState={this.resetState} />
         <div className="card-body">
-          <Shoes shoes={this.state.shoes} />
+          <Shoes
+            shoes={
+              this.state.filtered ? this.state.filteredShoes : this.state.shoes
+            }
+          />
         </div>
       </div>
     );
