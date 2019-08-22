@@ -46,6 +46,13 @@ class App extends Component {
     this.setState(this.baseState);
   };
 
+  uniqueHeader = () => {
+    const allPurposes = this.state.shoes.map(a => a.purpose);
+    let uniquePurposes = [...new Set(allPurposes)];
+    // Gets all unique purposes to be sent to header.
+    return uniquePurposes;
+  };
+
   clickFilter = value => {
     this.setState({
       filteredShoes: this.state.shoes.filter(item => item.purpose === value),
@@ -57,7 +64,11 @@ class App extends Component {
   render() {
     return (
       <div className="card text-center">
-        <Header click={this.clickFilter} resetState={this.resetState} />
+        <Header
+          click={this.clickFilter}
+          resetState={this.resetState}
+          unique={this.uniqueHeader}
+        />
         <div className="card-body">
           <Shoes
             shoes={
