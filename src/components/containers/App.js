@@ -13,43 +13,43 @@ class App extends Component {
           id: "a1",
           name: "Nike react",
           sizes: [[1, 2], [2, 1], [3, 2], [4, 1], [5, 6]],
-          purpose: "run"
+          purpose: "running"
         },
         {
           id: "a2",
           name: "Nike vaporfly",
           sizes: [[1, 1], [2, 3], [3, 2], [4, 2], [5, 2], [6, 20]],
-          purpose: "sport"
+          purpose: "sports"
         },
         {
           id: "a3",
           name: "Adidas ultraboost",
           sizes: [[1, 1], [2, 2], [3, 2]],
-          purpose: "sport"
+          purpose: "sports"
         },
         {
           id: "a4",
           name: "Adidas run",
           sizes: [[1, 18], [2, 42], [3, 8]],
-          purpose: "run"
+          purpose: "running"
         },
         {
           id: "a5",
           name: "Nike free RN",
           sizes: [[1, 1], [2, 42], [3, 8]],
-          purpose: "run"
+          purpose: "running"
         },
         {
           id: "a6",
           name: "Brogues",
           sizes: [[1, 1], [2, 42], [3, 8]],
-          purpose: "smart"
+          purpose: "smartwear"
         },
         {
           id: "a7",
           name: "Sliders",
           sizes: [[1, 1], [2, 10], [3, 8]],
-          purpose: "smart"
+          purpose: "smartwear"
         }
       ],
       filteredShoes: [],
