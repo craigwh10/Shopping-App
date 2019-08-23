@@ -13,6 +13,9 @@ class Shoes extends Component {
                 name={shoe.name}
                 sizes={shoe.sizes}
                 purpose={shoe.purpose}
+                shoe={shoe}
+                pageHandler={() => this.props.pageHandler(shoe)}
+                // Sending shoe to pageHandler in App to be sent to PageGenerator
               />
             );
           })}

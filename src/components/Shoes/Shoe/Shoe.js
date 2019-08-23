@@ -32,7 +32,7 @@ class Shoe extends Component {
         <h1>{this.props.name}</h1>
         <p>{this.props.purpose}</p>
         {items}
-        <Button shoe={this.props}>See more</Button>
+        <Button click={() => this.props.pageHandler()}>See more</Button>
       </div>
     );
   }

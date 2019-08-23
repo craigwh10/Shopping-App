@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Shoes from "../Shoes/Shoes";
 import Header from "../DivElements/Header";
+import PageGenerator from "../Shoes/ShoePage/PageGenerator";
 
 class App extends Component {
   constructor(props) {
@@ -37,11 +38,24 @@ class App extends Component {
           name: "Nike free RN",
           sizes: [[1, 1], [2, 42], [3, 8]],
           purpose: "run"
+        },
+        {
+          id: "a6",
+          name: "Brogues",
+          sizes: [[1, 1], [2, 42], [3, 8]],
+          purpose: "smart"
+        },
+        {
+          id: "a7",
+          name: "Sliders",
+          sizes: [[1, 1], [2, 10], [3, 8]],
+          purpose: "smart"
         }
       ],
       filteredShoes: [],
       filtered: false,
-      filteredValue: null
+      filteredValue: null,
+      page: false
     };
     this.clickFilter = this.clickFilter.bind(this);
     this.baseState = this.state;
@@ -63,13 +77,33 @@ class App extends Component {
     this.setState({
       filteredShoes: this.state.shoes.filter(item => item.purpose === value),
       filtered: true,
-      filteredValue: value
+      filteredValue: value,
+      page: false,
+      pageShoe: []
+    });
+  };
+
+  pageHandler = shoe => {
+    this.setState({
+      page: true,
+      pageShoe: shoe
     });
   };
 
   render() {
+    const shoes = (
+      <div className="card-body">
+        <Shoes
+          shoes={
+            this.state.filtered ? this.state.filteredShoes : this.state.shoes
+          }
+          pageHandler={shoe => this.pageHandler(shoe)}
+        />
+      </div>
+    );
+
     return (
-      <fragment>
+      <React.Fragment>
         <h1 className="top-title">{this.props.appHeader}</h1>
         <div className="card text-center">
           <Header
@@ -77,17 +111,13 @@ class App extends Component {
             resetState={this.resetState}
             unique={this.uniqueHeader}
           />
-          <div className="card-body">
-            <Shoes
-              shoes={
-                this.state.filtered
-                  ? this.state.filteredShoes
-                  : this.state.shoes
-              }
-            />
-          </div>
+          {this.state.page ? (
+            <PageGenerator shoeData={this.state.pageShoe} />
+          ) : (
+            shoes
+          )}
         </div>
-      </fragment>
+      </React.Fragment>
     );
   }
 }
