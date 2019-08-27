@@ -57,7 +57,8 @@ class App extends Component {
       filtered: false,
       filteredValue: null,
       page: false,
-      searchValue: null
+      searchValue: null,
+      empty: false
     };
     this.clickFilter = this.clickFilter.bind(this);
     this.baseState = this.state;
@@ -106,6 +107,7 @@ class App extends Component {
       filtered: filteredLength < 7 ? true : false,
       filteredShoes: filteredShoes,
       filteredLength: filteredLength,
+      empty: filteredLength === 0 ? true : false,
       page: false
     });
   };
@@ -137,6 +139,9 @@ class App extends Component {
           ) : (
             shoes
           )}
+          {this.state.empty ? (
+            <p>Please refine your search, shoe not found.</p>
+          ) : null}
         </div>
       </React.Fragment>
     );
