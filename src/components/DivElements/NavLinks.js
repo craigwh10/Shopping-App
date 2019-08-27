@@ -5,6 +5,7 @@ const navLinks = props => {
   return (
     <li className="nav-item" key={uuidv4()}>
       <a
+        href={null}
         className="nav-link"
         onClick={() => {
           props.handleClick(props.unique);

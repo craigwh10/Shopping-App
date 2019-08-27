@@ -53,13 +53,16 @@ class App extends Component {
         }
       ],
       filteredShoes: [],
+      filteredLength: 7,
       filtered: false,
       filteredValue: null,
-      page: false
+      page: false,
+      searchValue: null
     };
     this.clickFilter = this.clickFilter.bind(this);
     this.baseState = this.state;
     this.resetState = this.resetState.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
   }
 
   resetState = () => {
@@ -76,6 +79,7 @@ class App extends Component {
   clickFilter = value => {
     this.setState({
       filteredShoes: this.state.shoes.filter(item => item.purpose === value),
+      filteredLength: this.state.filteredShoes.length,
       filtered: true,
       filteredValue: value,
       page: false,
@@ -87,6 +91,22 @@ class App extends Component {
     this.setState({
       page: true,
       pageShoe: shoe
+    });
+  };
+
+  searchHandler = value => {
+    const lc = value.toLowerCase();
+    const filteredShoes = this.state.shoes.filter(item =>
+      item.name.toLowerCase().includes(lc)
+    );
+    const filteredLength = filteredShoes.length;
+    console.table(filteredShoes);
+    this.setState({
+      searchValue: value,
+      filtered: filteredLength < 7 ? true : false,
+      filteredShoes: filteredShoes,
+      filteredLength: filteredLength,
+      page: false
     });
   };
 
@@ -110,6 +130,7 @@ class App extends Component {
             click={this.clickFilter}
             resetState={this.resetState}
             unique={this.uniqueHeader}
+            searchChange={this.searchHandler}
           />
           {this.state.page ? (
             <PageGenerator shoeData={this.state.pageShoe} />
